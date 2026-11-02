@@ -1,0 +1,32 @@
+{
+  "projects": [
+    {
+      "name": "Project Pulse Dashboard",
+      "owner": "Mona",
+      "status": "In Progress",
+      "recentActivity": "Configured specialist agents and implementation plan",
+      "priority": "High"
+    },
+    {
+      "name": "Extracurricular Activity Hub",
+      "owner": "Hanna",
+      "status": "Completed",
+      "recentActivity": "Integrated GitHub MCP server and merged Robotics Club",
+      "priority": "Medium"
+    },
+    {
+      "name": "Automated Security SAST",
+      "owner": "Hanna",
+      "status": "Completed",
+      "recentActivity": "Enabled CodeQL query suite and resolved SQL injection",
+      "priority": "High"
+    },
+    {
+      "name": "Supply Chain Dependency Review",
+      "owner": "Florian",
+      "status": "Completed",
+      "recentActivity": "Audited package lockfile and enabled Dependabot alerts",
+      "priority": "Low"
+    }
+  ]
+    }
