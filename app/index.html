@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Pulse</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="dashboard">
+    <header class="dashboard-header">
+      <h1>Project Pulse</h1>
+      <p>Tracking high-priority initiatives and active specialist agent workflows</p>
+    </header>
+    <main class="dashboard-grid" id="projects-container">
+      <article class="project-card">
+        <h2 class="card-title">Project Pulse Dashboard</h2>
+        <div class="card-owner">Owner: Mona</div>
+        <div class="status-badge status-in-progress">status: In Progress</div>
+        <p class="card-activity">recentActivity: Configured specialist agents and implementation plan</p>
+        <div class="card-priority">priority: High</div>
+      </article>
+      <article class="project-card">
+        <h2 class="card-title">Extracurricular Activity Hub</h2>
+        <div class="card-owner">Owner: Hanna</div>
+        <div class="status-badge status-completed">status: Completed</div>
+        <p class="card-activity">recentActivity: Integrated GitHub MCP server and merged Robotics Club</p>
+        <div class="card-priority">priority: Medium</div>
+      </article>
+    </main>
+  </div>
+  <script>
+    fetch('project-data.json')
+      .then(response => response.json())
+      .then(data => {
+        if (!data || !data.projects) return;
+        const container = document.getElementById('projects-container');
+        container.innerHTML = '';
+        data.projects.forEach(project => {
+          const card = document.createElement('article');
+          card.className = 'project-card';
+          card.innerHTML = `
+            <h2 class="card-title">${project.name}</h2>
+            <div class="card-owner">Owner: ${project.owner}</div>
+            <div class="status-badge ${project.status === 'Completed' ? 'status-completed' : 'status-in-progress'}">status: ${project.status}</div>
+            <p class="card-activity">recentActivity: ${project.recentActivity}</p>
+            <div class="card-priority">priority: ${project.priority}</div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => console.error('Error loading project-data.json:', err));
+  </script>
+</body>
+</html>
